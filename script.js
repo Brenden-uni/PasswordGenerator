@@ -2,72 +2,81 @@
 const generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// function writePassword() {
-//   let password = generatePassword();
-//   let passwordText = document.querySelector("#password");
+function writePassword() {
+  let passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", promptMe);
 
+// Creat function to generate password
+
 function promptMe(){
 
+  // prompt user choices for password
+
   const passwordLengthString = prompt('What is your desired password length?');
-  let passwordLengths = +passwordLengthString
+  let passwordLength = +passwordLengthString
 
+// create min and max value for length
 
-  if (passwordLengths > 128){
+  if (passwordLength > 128){
     return alert ('Maximum length of 128');   
-  } else if  (passwordLengths < 8);
+  } else if (passwordLength < 8){
     return alert ('Minimum length of 8');
+  } else if (passwordLength == NaN){
+    return alert ('Please specify a number!');
   } else {
-  alert (passwordLengths);
+  alert (passwordLength); }
   
+  const needNumbers = confirm('Do you want numbers?');
   
-  const needUppercase = confirm('Do you want uppercase letters?');
+  const needUppercases = confirm('Do you want uppercase letters?');
 
   const needSymbols = confirm('Do you want symbols?');
+
+  console.log (passwordLength);
+  console.log (needNumbers)
+  console.log (needUppercases);
+  console.log (needSymbols);
+
+  // variables aligning with user choices
+
+  let charactersAll = "abcdefghijklmnopqrstuvwxyz";
+  let charactersNumber = "0123456789";
+  let charactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let charactersSymbol = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  
+  // create if statement to include user choice variables
+
+if (needNumbers === true){ 
+  charactersAll += charactersNumber
+}
+if (needUppercases === true){ 
+  charactersAll += charactersUpper
+}
+if (needSymbols === true){ 
+  charactersAll += charactersSymbol
+}
+
+  let password = "";
+// create the password
+  for (let i = 0; i <= passwordLength; i++) {
+    let randomNumber = Math.floor(Math.random() * charactersAll.length);
+    password += charactersAll.substring(randomNumber, randomNumber +1);
+  }
+  
+  console.log(password)
+
+  writePassword()
+  
 }
 
 
-// var password=document.getElementById("password");
 
-let chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let password = "";
-let passwordLength = 15;
-
-for (var i = 0; i <= passwordLength; i++) {
-  var randomNumber = Math.floor(Math.random() * chars.length);
-  password += chars.substring(randomNumber, randomNumber +1);
- }
- console.log (password)
- 
-  
-
-
-
-// Testing different methods of producing random passwords
-
-// Generate Functions
-// function getRandomLowercase() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) +97);
-// };
-
-// function getRandomUppercase() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) +65);
-// };
-
-// function getRandomNumbers() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) +48);
-// };
-
-// function getRandomSymbol() {
-//   const symbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// };
 
 
 
