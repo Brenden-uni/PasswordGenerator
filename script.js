@@ -2,7 +2,7 @@
 const generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
+function writePassword(password) {
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -71,7 +71,7 @@ if (needSymbols === true){
   
   console.log(password)
 
-  writePassword()
+  writePassword(password)
   
 }
 
