@@ -2,15 +2,15 @@
 
 ## Description
 
-This is the first challenge in the Coding Bootcamp, using content learned from week 1. The challenge required us to modify and improve an existing code, to meet the acceptance criteria. 
+Challenge 3 of coding bootcamp. An app that generates a password, using prompts and choices given by the user.
 
 ## Webpage Address
 
-https://brenden-uni.github.io/Challenge-1-/
+https://brenden-uni.github.io/PasswordGenerator/
 
 ## Screenshot
 
-
+![Alt text](.\Assets\passwordGenerator.PNG?raw=true "Screenshot of Webpage")
 
 ## Installation
 
